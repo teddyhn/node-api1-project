@@ -1,12 +1,16 @@
 // implement your API here
 
-const express = require('express'); // CommonJS Modules, equivalent to above
+const express = require('express');
+
+const cors = require('cors');
 
 const database = require('./data/db.js');
 
 const server = express();
 
 server.use(express.json());
+
+server.use(cors());
 
 server.get('/api/users', (req, res) => {
     database
