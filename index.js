@@ -19,6 +19,21 @@ server.get('/api/users', (req, res) => {
         });
 });
 
+server.get('/api/users/:id', (req, res) => {
+    const id = req.params.id;
+
+    database
+        .findById(id)
+        .then(data => {
+            if (!data) {
+                res.status(404).json({ message: "The user with the specified ID does not exist." })
+            } else res.send(data);
+        })
+        .catch(err => {
+            res.status(500).json({ error: "The user information could not be retrieved." })
+        })
+});
+
 server.post('/api/users', (req, res) => {
     const { name, bio } = req.body;
 
@@ -28,7 +43,7 @@ server.post('/api/users', (req, res) => {
         res.status(400).send({ errorMessage: "Please provide name and bio for the user." })
     }
 
-    database
+    else database
         .insert(req.body)
         .then(data => {
             res.status(201).json(data);
