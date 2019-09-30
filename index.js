@@ -15,22 +15,26 @@ server.get('/api/users', (req, res) => {
             res.send(data);
         })
         .catch(err => {
-            res.send(err);
+            res.status(500).json({ error: "The users information could not be retrieved." });
         });
 });
 
 server.post('/api/users', (req, res) => {
-    const data = req.body;
+    const { name, bio } = req.body;
 
-    console.log('Data: ', data);
+    console.log('Data: ', `name: ${name}, bio: ${bio}`);
+
+    if (!name || !bio) {
+        res.status(400).send({ errorMessage: "Please provide name and bio for the user." })
+    }
 
     database
-        .insert(data)
-        .then(x => {
-            res.json(x);
+        .insert(req.body)
+        .then(data => {
+            res.status(201).json(data);
         })
         .catch(err => {
-            res.json({ errorMessage: "Please provide name and bio for the user." })
+            res.status(500).json({ error: "There was an error while saving the user to the database" })
         })
 });
 
