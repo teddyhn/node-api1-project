@@ -15,7 +15,7 @@
   min-width: 18rem;
   max-width: 18rem;
   height: fit-content;
-  margin: 2rem;
+  margin: 30px 0!important;
 }
 
 svg {
@@ -33,4 +33,13 @@ svg {
 .btn-primary {
   display: flex;
   margin-left: auto;
+}
+
+.jumbotron {
+  padding: 2vh 10vw;
+  margin-bottom: 0;
+}
+
+.jumbotron-button {
+  margin-left: 0;
 }
