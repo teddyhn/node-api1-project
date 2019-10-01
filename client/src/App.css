@@ -13,7 +13,24 @@
 
 .card {
   min-width: 18rem;
-  max-width: fit-content;
+  max-width: 18rem;
   height: fit-content;
   margin: 2rem;
+}
+
+svg {
+  cursor: pointer;
+}
+
+.card-buttons {
+  text-align: right;
+}
+
+.fa-edit {
+  margin-right: 0.5rem;
+}
+
+.btn-primary {
+  display: flex;
+  margin-left: auto;
 }
