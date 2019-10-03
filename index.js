@@ -1,4 +1,4 @@
-require('./process.env').config();
+require('dotenv').config();
 
 // implement your API here
 
@@ -96,5 +96,4 @@ server.put('/api/users/:id', (req, res) => {
         })
 });
 
-const port = 8080;
 server.listen(port, () => console.log(`\n** API on port ${port} **\n`));
