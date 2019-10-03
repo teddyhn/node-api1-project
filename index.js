@@ -1,4 +1,4 @@
-require('./process.env').config();
+require('dotenv').config();
 
 // implement your API here
 
