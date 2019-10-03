@@ -1,6 +1,4 @@
-require('dotenv').config();
-
-const port = process.env.PORT || 5000;
+require('./process.env').config();
 
 // implement your API here
 
@@ -11,6 +9,8 @@ const cors = require('cors');
 const database = require('./data/db.js');
 
 const server = express();
+
+const port = process.env.PORT || 5000;
 
 server.use(express.json());
 
